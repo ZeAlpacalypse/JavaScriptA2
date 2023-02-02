@@ -34,22 +34,28 @@ function hideAllSections() {
     sections[i].classList.add("hidden");
   }
 }
-function tab1(){
+function tab1() {
   let minValue = document.querySelector("#minValue").value;
   let maxValue = document.querySelector("#maxValue").value;
-  let nums =[];
+  let arrayLength = maxValue - minValue;
+  let nums = [arrayLength + 1];
 
   console.log(minValue);
   console.log(maxValue);
 
-  if(minValue > maxValue){
+  if (minValue >= maxValue) {
     alert("Minimum value must be greater then the maximum value.");
-  }
-  else{
-    for(let i = 0, i < nums.length; i++){
-      
+  } else {
+    for (let i = 0; i <= arrayLength; i++) {
+      nums[i] = minValue;
+      minValue++;
+      console.log(nums[i])
     }
-
   }
-  
+ //console.log(nums[0]);
+ //console.log(nums[1]);
+ //console.log(nums[2]);
+ //console.log(nums[3]);
+ //console.log(nums[4]);
+ //console.log(nums[arrayLength]);
 }
