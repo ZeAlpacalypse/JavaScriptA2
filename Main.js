@@ -4,6 +4,7 @@ window.onload = function MakingTabs() {
     .querySelector("#tabContainer")
     .addEventListener("click", handleTabClick);
   document.querySelectorAll(".tab")[0].click(); // "click" the first button
+  document.querySelector("#minMaxButton").addEventListener("click", tab1);
 };
 // (Must declare parameter because we need the mouse click event.)
 function handleTabClick(evt) {
@@ -32,4 +33,29 @@ function hideAllSections() {
   for (let i = 0; i < sections.length; i++) {
     sections[i].classList.add("hidden");
   }
+}
+function tab1() {
+  let minValue = document.querySelector("#minValue").value;
+  let maxValue = document.querySelector("#maxValue").value;
+  let arrayLength = maxValue - minValue;
+  let nums = [arrayLength + 1];
+
+  console.log(minValue);
+  console.log(maxValue);
+
+  if (minValue >= maxValue) {
+    alert("Minimum value must be greater then the maximum value.");
+  } else {
+    for (let i = 0; i <= arrayLength; i++) {
+      nums[i] = minValue;
+      minValue++;
+      console.log(nums[i])
+    }
+  }
+ //console.log(nums[0]);
+ //console.log(nums[1]);
+ //console.log(nums[2]);
+ //console.log(nums[3]);
+ //console.log(nums[4]);
+ //console.log(nums[arrayLength]);
 }
