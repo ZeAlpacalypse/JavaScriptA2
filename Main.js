@@ -75,7 +75,7 @@ function SeparatedNumbers()
 };
 
 function tab1() {
-  let results = document.querySelector("#resultBox");
+  let results = document.querySelector("#resultBoxMin");
   let minValue = document.querySelector("#minValue").value;
   let maxValue = document.querySelector("#maxValue").value;
   let arrayLength = maxValue - minValue;
@@ -100,7 +100,7 @@ function tab1() {
   results.innerHTML = numList;
 }
 function tab3() {
-  let results = document.querySelector("#resultBox");
+  let results = document.querySelector("#resultBoxKey");
   let numberString = document.querySelector("#numString").value;
   let key = document.querySelector("#userKey").value;
   let pieces = numberString.split(",");
@@ -108,8 +108,8 @@ function tab3() {
   console.log(key);
 
   for (let i = 0; i < pieces.length; i++) {
-    key = Number(key);
-    let num = Number(pieces[i]);
+    //key = Number(key);
+    let num = (pieces[i]);
     console.log(num);
 
     if (key == num) {
@@ -117,6 +117,6 @@ function tab3() {
     }
   }
   console.log(keyCount);
-  results.innerHTML = keyCount;
+  results.innerHTML = "Count: " + keyCount;
 }
 
