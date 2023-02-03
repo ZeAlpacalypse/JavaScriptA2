@@ -6,28 +6,28 @@ window.onload = function MakingTabs() {
   document.querySelectorAll(".tab")[0].click(); // "click" the first button
 
   //This next section is for all the click events
-  //Still needs optimization, however I couldn't quite figure out how to listen for the click that is 
+  //Still needs optimization, however I couldn't quite figure out how to listen for the click that is
   //a decendent of the grandDad id and still write a function for each individual button click
-  let grandDad = document.querySelector('#grandDad')
-  grandDad.addEventListener('click',btn =>{
-    if(btn.target.matches('#minMaxButton')){
+  let grandDad = document.querySelector("#grandDad");
+  grandDad.addEventListener("click", (btn) => {
+    if (btn.target.matches("#minMaxButton")) {
       tab1();
-    }else if(btn.target.matches('#showSeparatedNumber')){
+    } else if (btn.target.matches("#showSeparatedNumber")) {
       SeparatedNumbers();
-    }else if(btn.target.matches('#keyButton')){
+    } else if (btn.target.matches("#keyButton")) {
       tab3();
-    }
-    /*else if(btn.target.matches('#')){
+    } else if (btn.target.matches("#shipCostButton")) {
+      /*else if(btn.target.matches('#')){
     else if(btn.target.matches('#keyButton')){
       console.log("");
     }
     else if(btn.target.matches('#')){
       console.log("");
-    }
-    else if(btn.target.matches('#')){
+    }*/
       console.log("");
+      tab7();
     }
-    else if(btn.target.matches('#')){
+    /*else if(btn.target.matches('#')){
       console.log("");
     }
     else if(btn.target.matches('#')){
@@ -36,10 +36,8 @@ window.onload = function MakingTabs() {
     else if(btn.target.matches('#')){
       console.log("");
     }*/
-  })
-}
-  
-
+  });
+};
 
 // (Must declare parameter because we need the mouse click event.)
 function handleTabClick(evt) {
@@ -70,11 +68,9 @@ function hideAllSections() {
   }
 }
 
-function SeparatedNumbers()
-{
+function SeparatedNumbers() {
   //let showNumberResults =document.querySelector("");
   console.log("Hello There");
-
 }
 
 function tab1() {
@@ -112,7 +108,7 @@ function tab3() {
 
   for (let i = 0; i < pieces.length; i++) {
     //key = Number(key);
-    let num = (pieces[i]);
+    let num = pieces[i];
     console.log(num);
 
     if (key == num) {
@@ -122,4 +118,60 @@ function tab3() {
   console.log(keyCount);
   results.innerHTML = "Count: " + keyCount;
 }
-
+function tab7() {
+  let results = document.querySelector("#resultShipCost");
+  let numberShipped = document.querySelector("#shipAmount").value;
+  let baseCost;
+  let total = 0,
+    taxAmount = 0;
+  let outPut = "<ul><li>";
+  const taxRate = 0.15,
+    smallOrder = 5,
+    mediumOrder = 4,
+    largeOrder = 3;
+  console.log(numberShipped);
+  if (numberShipped < 99) {
+    baseCost = numberShipped * smallOrder;
+    console.log(baseCost);
+    taxAmount = baseCost * taxRate;
+    console.log(taxAmount);
+    total = baseCost + taxAmount;
+    outPut +=
+      "Base Cost: " +
+      baseCost +
+      "</li> <li> Tax: " +
+      taxAmount +
+      "</li> <li> Total: " +
+      total +
+      "</li></ul>";
+  } else if (numberShipped >= 100 && numberShipped <= 1000) {
+    baseCost = numberShipped * mediumOrder;
+    console.log(baseCost);
+    taxAmount = baseCost * taxRate;
+    console.log(taxAmount);
+    total = baseCost + taxAmount;
+    outPut +=
+      "Base Cost: " +
+      baseCost +
+      "</li> <li> Tax: " +
+      taxAmount +
+      "</li> <li> Total: " +
+      total +
+      "</li></ul>";
+  } else if (numberShipped > 1000) {
+    baseCost = numberShipped * largeOrder;
+    console.log(baseCost);
+    taxAmount = baseCost * taxRate;
+    console.log(taxAmount);
+    total = baseCost + taxAmount;
+    outPut +=
+      "Base Cost: " +
+      baseCost +
+      "</li> <li> Tax: " +
+      taxAmount +
+      "</li> <li> Total: " +
+      total +
+      "</li></ul>";
+  }
+  results.innerHTML = outPut;
+}
