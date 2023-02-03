@@ -15,7 +15,7 @@ window.onload = function MakingTabs() {
     }else if(btn.target.matches('#showSeparatedNumber')){
       console.log("Why");
     }
-    else if(btn.target.matches('#')){
+    else if(btn.target.matches('#keyButton')){
       console.log("");
     }
     else if(btn.target.matches('#')){
