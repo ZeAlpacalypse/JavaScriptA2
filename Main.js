@@ -11,11 +11,11 @@ window.onload = function MakingTabs() {
   let grandDad = document.querySelector('#grandDad')
   grandDad.addEventListener('click',btn =>{
     if(btn.target.matches('#minMax')){
-      console.log("Hello There");
-    }else if(btn.target.matches('#showSeparatedNumber')){
-      console.log("Why");
-    }else if(btn.target.matches('#minMax')){
       tab1();
+    }else if(btn.target.matches('#showSeparatedNumber')){
+      SeparatedNumbers();
+    }else if(btn.target.matches('#keyButton')){
+      tab3();
     }
     /*else if(btn.target.matches('#')){
     else if(btn.target.matches('#keyButton')){
