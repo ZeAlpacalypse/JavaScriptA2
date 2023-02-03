@@ -4,9 +4,40 @@ window.onload = function MakingTabs() {
     .querySelector("#tabContainer")
     .addEventListener("click", handleTabClick);
   document.querySelectorAll(".tab")[0].click(); // "click" the first button
-  document.querySelector("#minMaxButton").addEventListener("click", tab1);
-  document.querySelector("#keyButton").addEventListener("click", tab3);
-};
+
+  //This next section is for all the click events
+  //Still needs optimization, however I couldn't quite figure out how to listen for the click that is 
+  //a decendent of the grandDad id and still write a function for each individual button click
+  let grandDad = document.querySelector('#grandDad')
+  grandDad.addEventListener('click',btn =>{
+    if(btn.target.matches('#showSeparatedNumber')){
+      console.log("Hello There");
+    }else if(btn.target.matches('#minMax')){
+      console.log("Why");
+    }
+    else if(btn.target.matches('#')){
+      console.log("");
+    }
+    else if(btn.target.matches('#')){
+      console.log("");
+    }
+    else if(btn.target.matches('#')){
+      console.log("");
+    }
+    else if(btn.target.matches('#')){
+      console.log("");
+    }
+    else if(btn.target.matches('#')){
+      console.log("");
+    }
+    else if(btn.target.matches('#')){
+      console.log("");
+    }
+  })
+}
+  
+
+
 // (Must declare parameter because we need the mouse click event.)
 function handleTabClick(evt) {
   // format the selected tab
@@ -35,6 +66,14 @@ function hideAllSections() {
     sections[i].classList.add("hidden");
   }
 }
+
+function SeparatedNumbers()
+{
+  //let showNumberResults =document.querySelector("");
+  console.log("Hello There");
+
+};
+
 function tab1() {
   let results = document.querySelector("#resultBox");
   let minValue = document.querySelector("#minValue").value;
@@ -80,3 +119,4 @@ function tab3() {
   console.log(keyCount);
   results.innerHTML = keyCount;
 }
+
