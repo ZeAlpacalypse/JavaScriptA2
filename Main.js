@@ -5,6 +5,7 @@ window.onload = function MakingTabs() {
     .addEventListener("click", handleTabClick);
   document.querySelectorAll(".tab")[0].click(); // "click" the first button
   document.querySelector("#minMaxButton").addEventListener("click", tab1);
+  document.querySelector("#keyButton").addEventListener("click", tab3);
 };
 // (Must declare parameter because we need the mouse click event.)
 function handleTabClick(evt) {
@@ -40,23 +41,42 @@ function tab1() {
   let maxValue = document.querySelector("#maxValue").value;
   let arrayLength = maxValue - minValue;
   let nums = [arrayLength + 1];
-  let numList = "<ul>"
+  let numList = "<ul>";
 
   //console.log(minValue);
   //console.log(maxValue);
 
   if (Number(minValue) >= Number(maxValue)) {
     alert("Minimum value must be greater then the maximum value.");
-  }
-  else {
+  } else {
     for (let i = 0; i <= arrayLength; i++) {
       nums[i] = minValue;
       minValue++;
-      console.log(nums[i])
-      numList += "<li>"+nums[i]+"</li>"
+      console.log(nums[i]);
+      numList += "<li>" + nums[i] + "</li>";
     }
   }
-  numList += "</ul>"
+  numList += "</ul>";
   //console.log(numList);
   results.innerHTML = numList;
+}
+function tab3() {
+  let results = document.querySelector("#resultBox");
+  let numberString = document.querySelector("#numString").value;
+  let key = document.querySelector("#userKey").value;
+  let pieces = numberString.split(",");
+  let keyCount = 0;
+  console.log(key);
+
+  for (let i = 0; i < pieces.length; i++) {
+    key = Number(key);
+    let num = Number(pieces[i]);
+    console.log(num);
+
+    if (key == num) {
+      keyCount = keyCount + 1;
+    }
+  }
+  console.log(keyCount);
+  results.innerHTML = keyCount;
 }
