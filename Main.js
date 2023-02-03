@@ -10,7 +10,7 @@ window.onload = function MakingTabs() {
   //a decendent of the grandDad id and still write a function for each individual button click
   let grandDad = document.querySelector('#grandDad')
   grandDad.addEventListener('click',btn =>{
-    if(btn.target.matches('#minMax')){
+    if(btn.target.matches('#minMaxButton')){
       tab1();
     }else if(btn.target.matches('#showSeparatedNumber')){
       SeparatedNumbers();
