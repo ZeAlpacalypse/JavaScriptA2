@@ -13,6 +13,7 @@ window.onload = function MakingTabs() {
     if(btn.target.matches('#minMaxButton')){
       tab1();
     }else if(btn.target.matches('#showSeparatedNumber')){
+      
       SeparatedNumbers();
     }else if(btn.target.matches('#keyButton')){
       tab3();
@@ -72,11 +73,70 @@ function hideAllSections() {
 
 function SeparatedNumbers()
 {
-  //let showNumberResults =document.querySelector("");
-  console.log("Hello There");
-
+  let showNumberResults =document.querySelector("#separatedNumbers").value;
+  let max = 0;
+  let total = 0;
+  let min = 0;
+  let avg = 0;
+  if (showNumberResults==null)
+  {
+    alert('Input a Value');
+  }
+  else{
+  let results = (showNumberResults.split(',')||showNumberResults.split(', '));
+ 
+  for(let i=0;i<results.length;i++)
+  { 
+    if(Validate(results[i])==true)
+    {results[i] = Number(results[i])}
+    //now we get the max value and min value
+    
+  }
+  for (let value1 of results)
+  {
+    if (Number(value1)>max)
+    {
+    max=value1;
+  }
+  }
+  
+  //now for the min
+  min =max;
+  for(let value of results)
+  {
+    total+=Number(value);
+    if(Number(value)<min)
+    {min = value;}
+  }
+  
+  avg = total / results.length;
+  
+  let path = '#Part_2>div>p:';
+  let child = 'nth-child';
+  //Now we have the p tags clear on button press
+  document.querySelector(path+'first-child').innerHTML = "Number of Values:";
+  document.querySelector(path+child+'(2)').innerHTML = "Total:";
+  document.querySelector(path+child+'(3)').innerHTML = "Average:";
+  document.querySelector(path+child+'(4)').innerHTML = "Smallest:";
+  document.querySelector(path+'last-child').innerHTML = "Largest:";
+  //now we add the values at the end
+  document.querySelector(path+'first-child').innerHTML += " "+results.length;
+  document.querySelector(path+child+'(2)').innerHTML += " "+total;
+  document.querySelector(path+child+'(3)').innerHTML += " "+avg;
+  document.querySelector(path+child+'(4)').innerHTML += " "+min;
+  document.querySelector(path+'last-child').innerHTML += ' '+max;
 }
-
+  
+}
+function Validate(e){
+  if(isNaN(e)==true)
+  {
+    return true;
+  }
+  else{
+    return false;
+  }
+}
 function tab1() {
   let results = document.querySelector("#resultBoxMin");
   let minValue = document.querySelector("#minValue").value;
