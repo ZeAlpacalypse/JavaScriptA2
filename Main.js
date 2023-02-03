@@ -10,9 +10,9 @@ window.onload = function MakingTabs() {
   //a decendent of the grandDad id and still write a function for each individual button click
   let grandDad = document.querySelector('#grandDad')
   grandDad.addEventListener('click',btn =>{
-    if(btn.target.matches('#showSeparatedNumber')){
+    if(btn.target.matches('#minMax')){
       console.log("Hello There");
-    }else if(btn.target.matches('#minMax')){
+    }else if(btn.target.matches('#showSeparatedNumber')){
       console.log("Why");
     }
     else if(btn.target.matches('#')){
