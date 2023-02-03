@@ -22,10 +22,10 @@ window.onload = function MakingTabs() {
       console.log("Success");
       tab5();
     }
-    /*else if(btn.target.matches('#')){
-
-      console.log("");
+    else if(btn.target.matches('#Part_4>button')){
+      Tab4()
     }
+    /*
     else if(btn.target.matches('#')){
       console.log("");
     }
@@ -149,3 +149,20 @@ function tab5() {
   }
   return result;
 }*/
+function Tab4()
+{
+  
+  let starTotal = Number(document.querySelector('#starAmount').value);
+  if(starTotal<1)
+  {
+    alert("Input must be at least one");
+  }
+  else
+  {
+    document.querySelector('#Part_4>div').innerHTML = '';
+    for(let i=0;i<starTotal;i++)
+    {
+      document.querySelector('#Part_4>div').innerHTML +='*';
+    }
+  }
+}
