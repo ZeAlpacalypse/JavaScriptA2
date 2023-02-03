@@ -14,8 +14,10 @@ window.onload = function MakingTabs() {
       console.log("Hello There");
     }else if(btn.target.matches('#showSeparatedNumber')){
       console.log("Why");
+    }else if(btn.target.matches('#minMax')){
+      tab1();
     }
-    else if(btn.target.matches('#')){
+    /*else if(btn.target.matches('#')){
       console.log("");
     }
     else if(btn.target.matches('#')){
@@ -32,7 +34,7 @@ window.onload = function MakingTabs() {
     }
     else if(btn.target.matches('#')){
       console.log("");
-    }
+    }*/
   })
 }
   
@@ -72,7 +74,7 @@ function SeparatedNumbers()
   //let showNumberResults =document.querySelector("");
   console.log("Hello There");
 
-};
+}
 
 function tab1() {
   let results = document.querySelector("#resultBoxMin");
