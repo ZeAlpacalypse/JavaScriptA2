@@ -4,6 +4,7 @@ window.onload = function MakingTabs() {
     .querySelector("#tabContainer")
     .addEventListener("click", handleTabClick);
   document.querySelectorAll(".tab")[0].click(); // "click" the first button
+
   //This next section is for all the click events
   //Still needs optimization, however I couldn't quite figure out how to listen for the click that is 
   //a decendent of the grandDad id and still write a function for each individual button click
@@ -36,6 +37,7 @@ window.onload = function MakingTabs() {
 }
   
 
+
 // (Must declare parameter because we need the mouse click event.)
 function handleTabClick(evt) {
   // format the selected tab
@@ -64,9 +66,57 @@ function hideAllSections() {
     sections[i].classList.add("hidden");
   }
 }
+
 function SeparatedNumbers()
 {
   //let showNumberResults =document.querySelector("");
   console.log("Hello There");
 
 };
+
+function tab1() {
+  let results = document.querySelector("#resultBox");
+  let minValue = document.querySelector("#minValue").value;
+  let maxValue = document.querySelector("#maxValue").value;
+  let arrayLength = maxValue - minValue;
+  let nums = [arrayLength + 1];
+  let numList = "<ul>";
+
+  //console.log(minValue);
+  //console.log(maxValue);
+
+  if (Number(minValue) >= Number(maxValue)) {
+    alert("Minimum value must be greater then the maximum value.");
+  } else {
+    for (let i = 0; i <= arrayLength; i++) {
+      nums[i] = minValue;
+      minValue++;
+      console.log(nums[i]);
+      numList += "<li>" + nums[i] + "</li>";
+    }
+  }
+  numList += "</ul>";
+  //console.log(numList);
+  results.innerHTML = numList;
+}
+function tab3() {
+  let results = document.querySelector("#resultBox");
+  let numberString = document.querySelector("#numString").value;
+  let key = document.querySelector("#userKey").value;
+  let pieces = numberString.split(",");
+  let keyCount = 0;
+  console.log(key);
+
+  for (let i = 0; i < pieces.length; i++) {
+    key = Number(key);
+    let num = Number(pieces[i]);
+    console.log(num);
+
+    if (key == num) {
+      keyCount = keyCount + 1;
+    }
+  }
+  console.log(keyCount);
+  results.innerHTML = keyCount;
+}
+
