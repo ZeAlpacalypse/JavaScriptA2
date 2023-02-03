@@ -18,6 +18,7 @@ window.onload = function MakingTabs() {
       tab1();
     }
     /*else if(btn.target.matches('#')){
+    else if(btn.target.matches('#keyButton')){
       console.log("");
     }
     else if(btn.target.matches('#')){
