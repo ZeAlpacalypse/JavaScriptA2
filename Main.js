@@ -396,21 +396,25 @@ function tab5() {
   rows = Math.ceil(rows);
   console.log(rows);
   console.log(remainder);
-  for(let i = 0; i < maxPerLine; i++){
-    starString +="*"
-  }
-  for(let i = 0; i <= rows-1; i++){
-    starArray[i] = starString;
-
-  }
-  if(remainder != 0){
-    starArray[starArray.length-1] = starArray[starArray.length-1].slice(maxPerLine-remainder);
-  }
-
+  if (numStars != "" && maxPerLine !="" && Number(numStars) >= Number(maxPerLine)){
+    for(let i = 0; i < maxPerLine; i++){
+      starString +="*"
+    }
+    for(let i = 0; i <= rows-1; i++){
+      starArray[i] = starString;
   
-  for(let i = 0; i <=rows-1; i++){
-    outputString += "<p>" + starArray[i] +"<p>";
+    }
+    if(remainder != 0){
+      starArray[starArray.length-1] = starArray[starArray.length-1].slice(maxPerLine-remainder);
+    }
+  
+    
+    for(let i = 0; i <=rows-1; i++){
+      outputString += "<p>" + starArray[i] +"<p>";
+    }
   }
+  else alert("Must enter numbers into the textbox. Number of stars must be greater than the max per line")
+ 
   console.log(starArray);
 
   console.log(outputString);
