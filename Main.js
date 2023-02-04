@@ -17,6 +17,7 @@ window.onload = function MakingTabs() {
     } else if (btn.target.matches("#keyButton")) {
       tab3();
 
+
     }
     else if(btn.target.matches('#Part_6>button')){
       Tab6()
@@ -31,6 +32,7 @@ window.onload = function MakingTabs() {
 
     
     else if(btn.target.matches('#')){
+
       console.log("");
     }
     else if(btn.target.matches('#')){
@@ -39,11 +41,13 @@ window.onload = function MakingTabs() {
     else if(btn.target.matches('#')){
       console.log("");
     }*/
+
     else if(btn.target.matches('#triangleButton')){
       tab10();
     }
-  });
-};
+
+  })
+}
 
 // (Must declare parameter because we need the mouse click event.)
 function handleTabClick(evt) {
@@ -75,6 +79,7 @@ function hideAllSections() {
 }
 
 function SeparatedNumbers() {
+
   let showNumberResults = document.querySelector("#separatedNumbers").value;
   let max = 0;
   let total = 0;
@@ -96,6 +101,7 @@ function SeparatedNumbers() {
         max = value1;
       }
     }
+
 
     //now for the min
     min = max;
@@ -178,6 +184,7 @@ function tab3() {
   console.log(keyCount);
   results.innerHTML = "Count: " + keyCount;
 }
+
 function Tab6() {
   let letters = document
     .querySelector("#noVowels")
@@ -287,3 +294,61 @@ document.querySelector(route+nth+'(3)').innerHTML +=' '+ boxCost;
 document.querySelector(route+nth+'(4)').innerHTML +=' '+ singleCost;
  document.querySelector(route+'last-child').innerHTML +=' '+ total;
 }
+function tab7() {
+  let results = document.querySelector("#resultShipCost");
+  let numberShipped = document.querySelector("#shipAmount").value;
+  let baseCost;
+  let total = 0,
+    taxAmount = 0;
+  let outPut = "<ul><li>";
+  const taxRate = 0.15,
+    smallOrder = 5,
+    mediumOrder = 4,
+    largeOrder = 3;
+  console.log(numberShipped);
+  if (numberShipped < 99) {
+    baseCost = numberShipped * smallOrder;
+    console.log(baseCost);
+    taxAmount = baseCost * taxRate;
+    console.log(taxAmount);
+    total = baseCost + taxAmount;
+    outPut +=
+      "Base Cost: " +
+      baseCost +
+      "</li> <li> Tax: " +
+      taxAmount +
+      "</li> <li> Total: " +
+      total +
+      "</li></ul>";
+  } else if (numberShipped >= 100 && numberShipped <= 1000) {
+    baseCost = numberShipped * mediumOrder;
+    console.log(baseCost);
+    taxAmount = baseCost * taxRate;
+    console.log(taxAmount);
+    total = baseCost + taxAmount;
+    outPut +=
+      "Base Cost: " +
+      baseCost +
+      "</li> <li> Tax: " +
+      taxAmount +
+      "</li> <li> Total: " +
+      total +
+      "</li></ul>";
+  } else if (numberShipped > 1000) {
+    baseCost = numberShipped * largeOrder;
+    console.log(baseCost);
+    taxAmount = baseCost * taxRate;
+    console.log(taxAmount);
+    total = baseCost + taxAmount;
+    outPut +=
+      "Base Cost: " +
+      baseCost +
+      "</li> <li> Tax: " +
+      taxAmount +
+      "</li> <li> Total: " +
+      total +
+      "</li></ul>";
+  }
+  results.innerHTML = outPut;
+}
+
