@@ -15,7 +15,9 @@
         padding: 10px 0;
         box-sizing: border-box;
       }
-
+      p {
+        font-size: large;
+      }
       .tab:hover {
         cursor: pointer;
       }
@@ -33,6 +35,9 @@
 
       .hidden {
         display: none;
+      }
+      #separatedNumbers {
+        font-size: medium;
       }
     </style>
     <script src="Main.js"></script>
@@ -73,11 +78,13 @@
           <input id="separatedNumbers" />
           <button id="showSeparatedNumber">Show Results</button>
           <div>
-            <p>Number of Values</p>
+
+            <p>Number of Values:</p>
             <p>Total:</p>
-            <p>Average</p>
+            <p>Average:</p>
             <p>Smallest:</p>
-            <p>Largest</p>
+            <p>Largest:</p>
+
           </div>
         </div>
         <div id="Part_3" class="tabContent">
@@ -89,6 +96,48 @@
             <input id="userKey" /><button id="keyButton">Count Key</button>
             <div id="resultBoxKey">Results go here</div>
           </div>
+
+        </div>
+        <div id="Part_4" class="tabContent"><h1>Number of Stars</h1></div>
+        <div id="Part_5" class="tabContent">
+          <h1>Number of Stars w/ max</h1>
+        </div>
+        <div id="Part_6" class="tabContent">
+          <h1>String removing vowels</h1>
+          <input id="noVowels" />
+          <button>Remove</button>
+          <div>
+            <p>Vowels:</p>
+            <p></p>
+          </div>
+        </div>
+        <div id="Part_7" class="tabContent"><h1>Price w/ Tax</h1></div>
+        <div id="Part_8" class="tabContent">
+          <h1>Box of Chocalte bars w/ info</h1>
+          <h2>How Many Chocalte Bars?</h2>
+          <input id="chocalteBars" />
+          <button>Calculate</button>
+          <div>
+            <p>Number of Boxes:</p>
+            <p>Number of Singles:</p>
+            <p>Cost of Boxes:</p>
+            <p>Cost of Singles</p>
+            <p>Total Cost</p>
+          </div>
+        </div>
+        <div id="Part_9" class="tabContent"><h1>Convert Binary Number</h1></div>
+        <div id="Part_10" class="tabContent">
+          <h1>Describe Triangle</h1>
+          <div>
+            <p>First Angle</p>
+            <input id="angleOne" />
+            <p>Second Angle</p>
+            <input id="angleTwo" />
+            <p>Third Angle</p>
+            <input id="angleThree" /><button id="triangleButton">Calculate</button>
+          </div>
+          <div id="resultTriangle"></div>
+
         </div>
         <div id="Part_4" class="tabContent"><h1>Number of Stars</h1></div>
         <div id="Part_5" class="tabContent">
