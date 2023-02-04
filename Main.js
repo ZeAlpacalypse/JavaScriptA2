@@ -18,10 +18,11 @@ window.onload = function MakingTabs() {
     }else if(btn.target.matches('#keyButton')){
       tab3();
     }
-    /*else if(btn.target.matches('#')){
-    else if(btn.target.matches('#keyButton')){
-      console.log("");
+    else if(btn.target.matches('#Part_6>button')){
+      Tab6()
     }
+    
+    /*
     else if(btn.target.matches('#')){
       console.log("");
     }
@@ -182,4 +183,36 @@ function tab3() {
   console.log(keyCount);
   results.innerHTML = "Count: " + keyCount;
 }
+function Tab6(){
 
+  let letters = document.querySelector('#noVowels').value.toLowerCase().split('');
+  let vowelCount = 0;
+  let word = "";
+  const vowel ={
+    a:'a',
+    e:'e',
+    i:'i',
+    o:'o',
+    u:'u'
+  }
+    for(let value of letters)
+  {
+    
+    if(value ==vowel.a||
+      value==vowel.e||
+      value==vowel.i||
+      value==vowel.o||
+      value==vowel.u)
+    {
+      vowelCount= vowelCount+1
+      word +="*";
+    }
+    else
+    {
+      word+= value;
+    }
+  }
+  document.querySelector('#Part_6>div>p:first-child').innerHTML ="Vowels:"
+  document.querySelector('#Part_6>div>p:first-child').innerHTML += ' '+ vowelCount.toString();
+  document.querySelector('#Part_6>div>p:last-child').innerHTML = word;
+}
