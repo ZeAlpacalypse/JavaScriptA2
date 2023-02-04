@@ -21,11 +21,13 @@ window.onload = function MakingTabs() {
     else if(btn.target.matches('#Part_6>button')){
       Tab6()
     }
+
     
-    /*
-    else if(btn.target.matches('#')){
-      console.log("");
+    else if(btn.target.matches('#Part_8>button')){
+      Tab8();
     }
+    /*
+    
     else if(btn.target.matches('#')){
       console.log("");
     }
@@ -215,4 +217,38 @@ function Tab6(){
   document.querySelector('#Part_6>div>p:first-child').innerHTML ="Vowels:"
   document.querySelector('#Part_6>div>p:first-child').innerHTML += ' '+ vowelCount.toString();
   document.querySelector('#Part_6>div>p:last-child').innerHTML = word;
+}
+function Tab8()
+{
+  const boxAmount = 24;
+  const barPrice = 1.75;
+  const boxPrice = 32;
+  let userBox, userSingles, boxCost,singleCost,total = 0;
+  let userBars = Number(document.querySelector('#chocalteBars').value);
+  if (userBars<1)
+  {
+    alert("Need at least one bar to calculate")
+  }
+  else 
+  {
+    userBox = Math.floor(userBars /boxAmount);
+    userSingles = userBars % boxAmount;
+    boxCost = userBox * boxPrice;
+    singleCost = userSingles * barPrice;
+    total = singleCost+boxCost;
+  }
+  let route = '#Part_8>div>p:';
+  let nth = 'nth-child';
+  document.querySelector(route+'first-child').innerHTML = 'Number of Boxes';
+  document.querySelector(route+nth+'(2)').innerHTML = 'Number of Singles:';
+  document.querySelector(route+nth+'(3)').innerHTML = 'Cost of Boxes:';
+  document.querySelector(route+nth+'(4)').innerHTML= 'Cost of Singles';
+  document.querySelector(route+'last-child').innerHTML = 'Total Cost';
+
+  //now adding the results
+  document.querySelector(route+'first-child').innerHTML+= ' '+userBox;
+document.querySelector(route+nth+'(2)').innerHTML += ' '+ userSingles;
+document.querySelector(route+nth+'(3)').innerHTML +=' '+ boxCost;
+document.querySelector(route+nth+'(4)').innerHTML +=' '+ singleCost;
+ document.querySelector(route+'last-child').innerHTML +=' '+ total;
 }
