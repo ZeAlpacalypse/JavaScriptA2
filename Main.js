@@ -125,36 +125,30 @@ function tab5() {
   let numStars = document.querySelector("#numOfStars").value;
   let maxPerLine = document.querySelector("#maxPerLine").value;
   let starString = "";
-  let regex = "/.{1,maxPerLine}/g"
-  regex = regex.replace("maxPerLine", maxPerLine)
-  console.log(regex);
-  let starArray = [];
-  let numLines = numStars/maxPerLine;
+  let outputString =""
+  let rows = numStars/maxPerLine;
+  let starArray = [rows];
   let remainder = numStars % maxPerLine;
   console.log(numStars);
   console.log(maxPerLine);
-  numLines = Math.ceil(numLines);
-  console.log(numLines);
+  rows = Math.ceil(rows);
+  console.log(rows);
   console.log(remainder);
-  /*for (let i = 0; i < numLines; i++) {
-    for(let j = 0; j < maxPerLine; j++){
-      starString += "*"; 
-    }
+  for(let i = 0; i < maxPerLine; i++){
+    starString +="*"
+  }
+  for(let i = 0; i <= rows-1; i++){
     starArray[i] = starString;
-  }*/
-  for(let i = 0; i < numStars; i++){
-    starString += "*";
+
   }
- starArray = starString.match(regex) ?? [];
+
+  starArray[starArray.length-1] = starArray[starArray.length-1].slice(maxPerLine-remainder);
+  for(let i = 0; i <=rows-1; i++){
+    outputString += "<p>" + starArray[i] +"<p>";
+  }
   console.log(starArray);
-  //starString = divideString(starString, Number(maxPerLine))
+
   console.log(starString);
-  results.innerHTML = starString;
+  results.innerHTML = outputString;
 }
-/*function divideString(str, length) {
-  let result = [];
-  for (let i = 0; i < str.length; i += length) {
-    result.push(str.substr(i, length));
-  }
-  return result;
-}*/
+
