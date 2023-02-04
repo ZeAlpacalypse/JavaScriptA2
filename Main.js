@@ -37,10 +37,10 @@ window.onload = function MakingTabs() {
     }
     else if(btn.target.matches('#')){
       console.log("");
-    }
-    else if(btn.target.matches('#')){
-      console.log("");
     }*/
+    else if(btn.target.matches('#shipCostButton')){
+      tab7();
+    }
 
     else if(btn.target.matches('#triangleButton')){
       tab10();
