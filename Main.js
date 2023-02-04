@@ -6,17 +6,17 @@ window.onload = function MakingTabs() {
   document.querySelectorAll(".tab")[0].click(); // "click" the first button
 
   //This next section is for all the click events
-  //Still needs optimization, however I couldn't quite figure out how to listen for the click that is 
+  //Still needs optimization, however I couldn't quite figure out how to listen for the click that is
   //a decendent of the grandDad id and still write a function for each individual button click
-  let grandDad = document.querySelector('#grandDad')
-  grandDad.addEventListener('click',btn =>{
-    if(btn.target.matches('#minMaxButton')){
+  let grandDad = document.querySelector("#grandDad");
+  grandDad.addEventListener("click", (btn) => {
+    if (btn.target.matches("#minMaxButton")) {
       tab1();
-    }else if(btn.target.matches('#showSeparatedNumber')){
-      
+    } else if (btn.target.matches("#showSeparatedNumber")) {
       SeparatedNumbers();
-    }else if(btn.target.matches('#keyButton')){
+    } else if (btn.target.matches("#keyButton")) {
       tab3();
+
     }
     else if(btn.target.matches('#Part_6>button')){
       Tab6()
@@ -28,6 +28,7 @@ window.onload = function MakingTabs() {
     }
     /*
     
+
     else if(btn.target.matches('#')){
       console.log("");
     }
@@ -40,10 +41,10 @@ window.onload = function MakingTabs() {
     else if(btn.target.matches('#')){
       console.log("");
     }*/
-  })
-}
-  
-
+      tab10();
+    }
+  });
+};
 
 // (Must declare parameter because we need the mouse click event.)
 function handleTabClick(evt) {
@@ -74,69 +75,62 @@ function hideAllSections() {
   }
 }
 
-function SeparatedNumbers()
-{
-  let showNumberResults =document.querySelector("#separatedNumbers").value;
+function SeparatedNumbers() {
+  let showNumberResults = document.querySelector("#separatedNumbers").value;
   let max = 0;
   let total = 0;
   let min = 0;
   let avg = 0;
-  if (showNumberResults==null)
-  {
-    alert('Input a Value');
+  if (showNumberResults == null) {
+    alert("Input a Value");
+  } else {
+    let results = showNumberResults.split(",") || showNumberResults.split(", ");
+
+    for (let i = 0; i < results.length; i++) {
+      if (Validate(results[i]) == true) {
+        results[i] = Number(results[i]);
+      }
+      //now we get the max value and min value
+    }
+    for (let value1 of results) {
+      if (Number(value1) > max) {
+        max = value1;
+      }
+    }
+
+    //now for the min
+    min = max;
+    for (let value of results) {
+      total += Number(value);
+      if (Number(value) < min) {
+        min = value;
+      }
+    }
+
+    avg = total / results.length;
+
+    let path = "#Part_2>div>p:";
+    let child = "nth-child";
+    //Now we have the p tags clear on button press
+    document.querySelector(path + "first-child").innerHTML =
+      "Number of Values:";
+    document.querySelector(path + child + "(2)").innerHTML = "Total:";
+    document.querySelector(path + child + "(3)").innerHTML = "Average:";
+    document.querySelector(path + child + "(4)").innerHTML = "Smallest:";
+    document.querySelector(path + "last-child").innerHTML = "Largest:";
+    //now we add the values at the end
+    document.querySelector(path + "first-child").innerHTML +=
+      " " + results.length;
+    document.querySelector(path + child + "(2)").innerHTML += " " + total;
+    document.querySelector(path + child + "(3)").innerHTML += " " + avg;
+    document.querySelector(path + child + "(4)").innerHTML += " " + min;
+    document.querySelector(path + "last-child").innerHTML += " " + max;
   }
-  else{
-  let results = (showNumberResults.split(',')||showNumberResults.split(', '));
- 
-  for(let i=0;i<results.length;i++)
-  { 
-    if(Validate(results[i])==true)
-    {results[i] = Number(results[i])}
-    //now we get the max value and min value
-    
-  }
-  for (let value1 of results)
-  {
-    if (Number(value1)>max)
-    {
-    max=value1;
-  }
-  }
-  
-  //now for the min
-  min =max;
-  for(let value of results)
-  {
-    total+=Number(value);
-    if(Number(value)<min)
-    {min = value;}
-  }
-  
-  avg = total / results.length;
-  
-  let path = '#Part_2>div>p:';
-  let child = 'nth-child';
-  //Now we have the p tags clear on button press
-  document.querySelector(path+'first-child').innerHTML = "Number of Values:";
-  document.querySelector(path+child+'(2)').innerHTML = "Total:";
-  document.querySelector(path+child+'(3)').innerHTML = "Average:";
-  document.querySelector(path+child+'(4)').innerHTML = "Smallest:";
-  document.querySelector(path+'last-child').innerHTML = "Largest:";
-  //now we add the values at the end
-  document.querySelector(path+'first-child').innerHTML += " "+results.length;
-  document.querySelector(path+child+'(2)').innerHTML += " "+total;
-  document.querySelector(path+child+'(3)').innerHTML += " "+avg;
-  document.querySelector(path+child+'(4)').innerHTML += " "+min;
-  document.querySelector(path+'last-child').innerHTML += ' '+max;
 }
-  
-}
-function Validate(e){
-  if(isNaN(e)==true)
-  {
+function Validate(e) {
+  if (isNaN(e) == true) {
     return true;
-  }
-  else{
+  } else {
     return false;
   }
 }
@@ -175,7 +169,7 @@ function tab3() {
 
   for (let i = 0; i < pieces.length; i++) {
     //key = Number(key);
-    let num = (pieces[i]);
+    let num = pieces[i];
     console.log(num);
 
     if (key == num) {
@@ -185,38 +179,80 @@ function tab3() {
   console.log(keyCount);
   results.innerHTML = "Count: " + keyCount;
 }
-function Tab6(){
-
-  let letters = document.querySelector('#noVowels').value.toLowerCase().split('');
+function Tab6() {
+  let letters = document
+    .querySelector("#noVowels")
+    .value.toLowerCase()
+    .split("");
   let vowelCount = 0;
   let word = "";
-  const vowel ={
-    a:'a',
-    e:'e',
-    i:'i',
-    o:'o',
-    u:'u'
-  }
-    for(let value of letters)
-  {
-    
-    if(value ==vowel.a||
-      value==vowel.e||
-      value==vowel.i||
-      value==vowel.o||
-      value==vowel.u)
-    {
-      vowelCount= vowelCount+1
-      word +="*";
-    }
-    else
-    {
-      word+= value;
+  const vowel = {
+    a: "a",
+    e: "e",
+    i: "i",
+    o: "o",
+    u: "u",
+  };
+  for (let value of letters) {
+    if (
+      value == vowel.a ||
+      value == vowel.e ||
+      value == vowel.i ||
+      value == vowel.o ||
+      value == vowel.u
+    ) {
+      vowelCount = vowelCount + 1;
+      word += "*";
+    } else {
+      word += value;
     }
   }
-  document.querySelector('#Part_6>div>p:first-child').innerHTML ="Vowels:"
-  document.querySelector('#Part_6>div>p:first-child').innerHTML += ' '+ vowelCount.toString();
-  document.querySelector('#Part_6>div>p:last-child').innerHTML = word;
+  document.querySelector("#Part_6>div>p:first-child").innerHTML = "Vowels:";
+  document.querySelector("#Part_6>div>p:first-child").innerHTML +=
+    " " + vowelCount.toString();
+  document.querySelector("#Part_6>div>p:last-child").innerHTML = word;
+}
+function tab10() {
+  let results = document.querySelector("#resultTriangle");
+  let angleOne = document.querySelector("#angleOne").value;
+  let angleTwo = document.querySelector("#angleTwo").value;
+  let angleThree = document.querySelector("#angleThree").value;
+  let angleSum = 0;
+  let traingleType = "";
+  angleSum = Number(angleOne) + Number(angleTwo) + Number(angleThree);
+  console.log(angleOne);
+  console.log(angleTwo);
+  console.log(angleThree);
+  console.log(angleSum);
+  if(Number(angleOne) == 0 || Number(angleTwo) == 0 ||  Number(angleThree) == 0){
+    alert("All angles must be greater than 0")
+  }
+  else{ 
+  if (angleSum > 180) {
+    alert("Sum of angles can't be more than 180");
+  } else if (
+    Number(angleOne) == 90 ||
+    Number(angleTwo) == 90 ||
+    Number(angleThree) == 90
+  ) {
+    traingleType = "Right Angle Triangle";
+  } else if (
+    Number(angleOne) > 90 ||
+    Number(angleTwo) > 90 ||
+    Number(angleThree) > 90
+  ) {
+    traingleType = "Obtuse Triangle";
+  } else if (
+    Number(angleOne) < 90 ||
+    Number(angleTwo) < 90 ||
+    Number(angleThree) < 90
+  ) {
+    traingleType = "Acute Triangle";
+  }
+  console.log(traingleType);
+}
+results.innerHTML = traingleType;
+  
 }
 function Tab8()
 {
