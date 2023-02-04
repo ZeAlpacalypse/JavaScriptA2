@@ -29,9 +29,7 @@ window.onload = function MakingTabs() {
     /*
     
 
-    else if(btn.target.matches('#')){
-      console.log("");
-    }
+    
     else if(btn.target.matches('#')){
       console.log("");
     }
@@ -41,6 +39,7 @@ window.onload = function MakingTabs() {
     else if(btn.target.matches('#')){
       console.log("");
     }*/
+    else if(btn.target.matches('#triangleButton')){
       tab10();
     }
   });
