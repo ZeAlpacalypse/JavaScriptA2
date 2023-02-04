@@ -19,6 +19,10 @@ window.onload = function MakingTabs() {
 
 
     }
+    else if(btn.target.matches('#Part_4>button')){
+      Tab4()
+    }
+
     else if(btn.target.matches('#Part_6>button')){
       Tab6()
     }
@@ -27,10 +31,11 @@ window.onload = function MakingTabs() {
     else if(btn.target.matches('#Part_8>button')){
       Tab8();
     }
-    /*
+    
     
 
     
+/*
     else if(btn.target.matches('#')){
 
       console.log("");
@@ -46,8 +51,10 @@ window.onload = function MakingTabs() {
       tab10();
     }
 
+
   })
 }
+
 
 // (Must declare parameter because we need the mouse click event.)
 function handleTabClick(evt) {
@@ -80,6 +87,7 @@ function hideAllSections() {
 
 function SeparatedNumbers() {
 
+
   let showNumberResults = document.querySelector("#separatedNumbers").value;
   let max = 0;
   let total = 0;
@@ -101,6 +109,7 @@ function SeparatedNumbers() {
         max = value1;
       }
     }
+
 
 
     //now for the min
@@ -184,6 +193,26 @@ function tab3() {
   console.log(keyCount);
   results.innerHTML = "Count: " + keyCount;
 }
+function Tab4()
+{
+  
+  let starTotal = Number(document.querySelector('#starAmount').value);
+  if(starTotal<1)
+  {
+    alert("Input must be at least one");
+  }
+  else
+  {
+    document.querySelector('#Part_4>div').innerHTML = '';
+    for(let i=0;i<starTotal;i++)
+    {
+      document.querySelector('#Part_4>div').innerHTML +='*';
+    }
+  }
+}
+
+
+
 
 function Tab6() {
   let letters = document
@@ -351,4 +380,5 @@ function tab7() {
   }
   results.innerHTML = outPut;
 }
+
 
