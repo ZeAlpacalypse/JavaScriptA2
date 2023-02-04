@@ -176,6 +176,7 @@ function tab3() {
   console.log(keyCount);
   results.innerHTML = "Count: " + keyCount;
 }
+
 function Tab4() {
   let starTotal = Number(document.querySelector("#starAmount").value);
   if (starTotal < 1) {
@@ -379,4 +380,38 @@ function tab9() {
   exponentString += "</p>";
   console.log(exponentString);
   results.innerHTML =  exponentString;
+}
+function tab5() {
+  let results = document.querySelector("#resultBoxStarMax");
+  let numStars = document.querySelector("#numOfStars").value;
+  let maxPerLine = document.querySelector("#maxPerLine").value;
+  let starString = "";
+  let outputString =""
+  let rows = numStars/maxPerLine;
+  let starArray = [rows];
+  let remainder = numStars % maxPerLine;
+  console.log(numStars);
+  console.log(maxPerLine);
+  rows = Math.ceil(rows);
+  console.log(rows);
+  console.log(remainder);
+  for(let i = 0; i < maxPerLine; i++){
+    starString +="*"
+  }
+  for(let i = 0; i <= rows-1; i++){
+    starArray[i] = starString;
+
+  }
+  if(remainder != 0){
+    starArray[starArray.length-1] = starArray[starArray.length-1].slice(maxPerLine-remainder);
+  }
+
+  
+  for(let i = 0; i <=rows-1; i++){
+    outputString += "<p>" + starArray[i] +"<p>";
+  }
+  console.log(starArray);
+
+  console.log(starString);
+  results.innerHTML = outputString;
 }
