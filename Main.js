@@ -22,14 +22,15 @@ window.onload = function MakingTabs() {
       Tab6();
     } else if (btn.target.matches("#Part_8>button")) {
       Tab8();
-    } else if (btn.target.matches("#binaryConversionButton")) {
+    } 
 
-    /*
-    else if(btn.target.matches('#')){
+    
+    else if(btn.target.matches('#resultBoxMaxStar')){
 
-      console.log("");
+      tab5();
 
-    }*/
+    }
+    else if (btn.target.matches("#binaryConversionButton")) {
       tab9();
     } else if (btn.target.matches("#shipCostButton")) {
       tab7();
