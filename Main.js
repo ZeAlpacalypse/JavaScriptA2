@@ -25,7 +25,7 @@ window.onload = function MakingTabs() {
     } 
 
     
-    else if(btn.target.matches('#resultBoxMaxStar')){
+    else if(btn.target.matches("#maxStarButton")){
 
       tab5();
 
@@ -384,7 +384,7 @@ function tab9() {
 }
 function tab5() {
   let results = document.querySelector("#resultBoxStarMax");
-  let numStars = document.querySelector("#numOfStars").value;
+  let numStars = document.querySelector("#numStars").value;
   let maxPerLine = document.querySelector("#maxPerLine").value;
   let starString = "";
   let outputString =""
@@ -413,6 +413,6 @@ function tab5() {
   }
   console.log(starArray);
 
-  console.log(starString);
+  console.log(outputString);
   results.innerHTML = outputString;
 }
