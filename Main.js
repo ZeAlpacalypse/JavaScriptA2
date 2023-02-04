@@ -16,45 +16,28 @@ window.onload = function MakingTabs() {
       SeparatedNumbers();
     } else if (btn.target.matches("#keyButton")) {
       tab3();
-
-
-    }
-    else if(btn.target.matches('#Part_4>button')){
-      Tab4()
-    }
-
-    else if(btn.target.matches('#Part_6>button')){
-      Tab6()
-    }
-
-    
-    else if(btn.target.matches('#Part_8>button')){
+    } else if (btn.target.matches("#Part_4>button")) {
+      Tab4();
+    } else if (btn.target.matches("#Part_6>button")) {
+      Tab6();
+    } else if (btn.target.matches("#Part_8>button")) {
       Tab8();
-    }
-    
-    
+    } else if (btn.target.matches("#binaryConversionButton")) {
 
-    
-/*
+    /*
     else if(btn.target.matches('#')){
 
       console.log("");
-    }
-    else if(btn.target.matches('#')){
-      console.log("");
+
     }*/
-    else if(btn.target.matches('#shipCostButton')){
+      tab9();
+    } else if (btn.target.matches("#shipCostButton")) {
       tab7();
-    }
-
-    else if(btn.target.matches('#triangleButton')){
+    } else if (btn.target.matches("#triangleButton")) {
       tab10();
     }
-
-
-  })
-}
-
+  });
+};
 
 // (Must declare parameter because we need the mouse click event.)
 function handleTabClick(evt) {
@@ -193,26 +176,17 @@ function tab3() {
   console.log(keyCount);
   results.innerHTML = "Count: " + keyCount;
 }
-function Tab4()
-{
-  
-  let starTotal = Number(document.querySelector('#starAmount').value);
-  if(starTotal<1)
-  {
+function Tab4() {
+  let starTotal = Number(document.querySelector("#starAmount").value);
+  if (starTotal < 1) {
     alert("Input must be at least one");
-  }
-  else
-  {
-    document.querySelector('#Part_4>div').innerHTML = '';
-    for(let i=0;i<starTotal;i++)
-    {
-      document.querySelector('#Part_4>div').innerHTML +='*';
+  } else {
+    document.querySelector("#Part_4>div").innerHTML = "";
+    for (let i = 0; i < starTotal; i++) {
+      document.querySelector("#Part_4>div").innerHTML += "*";
     }
   }
 }
-
-
-
 
 function Tab6() {
   let letters = document
@@ -259,69 +233,72 @@ function tab10() {
   console.log(angleTwo);
   console.log(angleThree);
   console.log(angleSum);
-  if(Number(angleOne) == 0 || Number(angleTwo) == 0 ||  Number(angleThree) == 0){
-    alert("All angles must be greater than 0")
+  if (
+    Number(angleOne) == 0 ||
+    Number(angleTwo) == 0 ||
+    Number(angleThree) == 0
+  ) {
+    alert("All angles must be greater than 0");
+  } else {
+    if (angleSum > 180) {
+      alert("Sum of angles can't be more than 180");
+    } else if (
+      Number(angleOne) == 90 ||
+      Number(angleTwo) == 90 ||
+      Number(angleThree) == 90
+    ) {
+      traingleType = "Right Angle Triangle";
+    } else if (
+      Number(angleOne) > 90 ||
+      Number(angleTwo) > 90 ||
+      Number(angleThree) > 90
+    ) {
+      traingleType = "Obtuse Triangle";
+    } else if (
+      Number(angleOne) < 90 ||
+      Number(angleTwo) < 90 ||
+      Number(angleThree) < 90
+    ) {
+      traingleType = "Acute Triangle";
+    }
+    console.log(traingleType);
   }
-  else{ 
-  if (angleSum > 180) {
-    alert("Sum of angles can't be more than 180");
-  } else if (
-    Number(angleOne) == 90 ||
-    Number(angleTwo) == 90 ||
-    Number(angleThree) == 90
-  ) {
-    traingleType = "Right Angle Triangle";
-  } else if (
-    Number(angleOne) > 90 ||
-    Number(angleTwo) > 90 ||
-    Number(angleThree) > 90
-  ) {
-    traingleType = "Obtuse Triangle";
-  } else if (
-    Number(angleOne) < 90 ||
-    Number(angleTwo) < 90 ||
-    Number(angleThree) < 90
-  ) {
-    traingleType = "Acute Triangle";
-  }
-  console.log(traingleType);
+  results.innerHTML = traingleType;
+
 }
-results.innerHTML = traingleType;
-  
-}
-function Tab8()
-{
+function Tab8() {
   const boxAmount = 24;
   const barPrice = 1.75;
   const boxPrice = 32;
-  let userBox, userSingles, boxCost,singleCost,total = 0;
-  let userBars = Number(document.querySelector('#chocalteBars').value);
-  if (userBars<1)
-  {
-    alert("Need at least one bar to calculate")
-  }
-  else 
-  {
-    userBox = Math.floor(userBars /boxAmount);
+  let userBox,
+    userSingles,
+    boxCost,
+    singleCost,
+    total = 0;
+  let userBars = Number(document.querySelector("#chocalteBars").value);
+  if (userBars < 1) {
+    alert("Need at least one bar to calculate");
+  } else {
+    userBox = Math.floor(userBars / boxAmount);
     userSingles = userBars % boxAmount;
     boxCost = userBox * boxPrice;
     singleCost = userSingles * barPrice;
-    total = singleCost+boxCost;
+    total = singleCost + boxCost;
   }
-  let route = '#Part_8>div>p:';
-  let nth = 'nth-child';
-  document.querySelector(route+'first-child').innerHTML = 'Number of Boxes';
-  document.querySelector(route+nth+'(2)').innerHTML = 'Number of Singles:';
-  document.querySelector(route+nth+'(3)').innerHTML = 'Cost of Boxes:';
-  document.querySelector(route+nth+'(4)').innerHTML= 'Cost of Singles';
-  document.querySelector(route+'last-child').innerHTML = 'Total Cost';
+  let route = "#Part_8>div>p:";
+  let nth = "nth-child";
+  document.querySelector(route + "first-child").innerHTML = "Number of Boxes";
+  document.querySelector(route + nth + "(2)").innerHTML = "Number of Singles:";
+  document.querySelector(route + nth + "(3)").innerHTML = "Cost of Boxes:";
+  document.querySelector(route + nth + "(4)").innerHTML = "Cost of Singles";
+  document.querySelector(route + "last-child").innerHTML = "Total Cost";
 
   //now adding the results
-  document.querySelector(route+'first-child').innerHTML+= ' '+userBox;
-document.querySelector(route+nth+'(2)').innerHTML += ' '+ userSingles;
-document.querySelector(route+nth+'(3)').innerHTML +=' '+ boxCost;
-document.querySelector(route+nth+'(4)').innerHTML +=' '+ singleCost;
- document.querySelector(route+'last-child').innerHTML +=' '+ total;
+  document.querySelector(route + "first-child").innerHTML += " " + userBox;
+  document.querySelector(route + nth + "(2)").innerHTML += " " + userSingles;
+  document.querySelector(route + nth + "(3)").innerHTML += " " + boxCost;
+  document.querySelector(route + nth + "(4)").innerHTML += " " + singleCost;
+  document.querySelector(route + "last-child").innerHTML += " " + total;
 }
 function tab7() {
   let results = document.querySelector("#resultShipCost");
@@ -380,5 +357,26 @@ function tab7() {
   }
   results.innerHTML = outPut;
 }
-
-
+function tab9() {
+  let results = document.querySelector("#resultBoxBinary");
+  let binaryNumber = document.querySelector("#binaryNumber").value;
+  let mathString ="";
+  let exponentString = "<p>";
+  let exponent = 0, total = 0;
+  console.log(binaryNumber);
+  for (let i = binaryNumber.length - 1; i >= 0; i--) {
+    if (binaryNumber.charAt(i) == "1") {
+      exponentString += "2^" + exponent + " + ";
+      mathString += Math.pow(2,exponent) + " + ";
+      total += Math.pow(2,exponent);
+      exponent++;
+    } else exponent++;
+  }
+  exponentString = exponentString.substring(0,exponentString.length-2);
+  mathString = mathString.substring(0,mathString.length-2);
+  console.log(mathString);
+  exponentString += "= " + mathString + " = " + total;
+  exponentString += "</p>";
+  console.log(exponentString);
+  results.innerHTML =  exponentString;
+}
