@@ -141,8 +141,11 @@ function tab5() {
     starArray[i] = starString;
 
   }
+  if(remainder != 0){
+    starArray[starArray.length-1] = starArray[starArray.length-1].slice(maxPerLine-remainder);
+  }
 
-  starArray[starArray.length-1] = starArray[starArray.length-1].slice(maxPerLine-remainder);
+  
   for(let i = 0; i <=rows-1; i++){
     outputString += "<p>" + starArray[i] +"<p>";
   }
